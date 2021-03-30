@@ -1,5 +1,20 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+/* setting */
+@import './setting/size';
+@import './setting/color';
+@import './setting/easing';
+@import './setting/typography';
+
+/* function */
+@import './function/mixin';
+
+/* foundation */
+@import './foundation/reset';
+@import './foundation/base';
+
+/* external */
+
+/* layout */
+
+/* project */
+
+/* component */

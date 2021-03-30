@@ -1,0 +1,23 @@
+@mixin mq-xl {
+    @media all and (max-width: map-get($breakpoints, xl)) {
+        @content;
+    }
+}
+
+@mixin mq-lg {
+    @media all and (max-width: map-get($breakpoints, lg)) {
+        @content;
+    }
+}
+
+@mixin mq-md {
+    @media all and (max-width: map-get($breakpoints, md)) {
+        @content;
+    }
+}
+
+@mixin mq-sm {
+    @media all and (max-width: map-get($breakpoints, sm)) {
+        @content;
+    }
+}
