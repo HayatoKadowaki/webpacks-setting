@@ -38,6 +38,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "css-vars-ponyfill": "^2.4.4"
+    "css-vars-ponyfill": "^2.4.4",
+    "picturefill": "^3.0.3"
   }
 }
