@@ -1,3 +1,11 @@
 import '@styles/style.scss';
+import cssVars from 'css-vars-ponyfill';
 
-console.log('hello world');
+class Index {
+    constructor() {
+        cssVars();
+        console.log('hello world')
+    }
+}
+
+new Index();
