@@ -17,7 +17,7 @@ const config = {
 	},
     output: {
         path: distPath,
-        filename: 'js/index.js'
+        filename: 'assets/js/index.js'
     },
     devServer: {
 		hot: true,
@@ -79,12 +79,12 @@ const config = {
 			patterns: [
 				{
 					from: 'src/assets/img',
-					to: 'img'
+					to: 'assets/img'
 				}
 			]
 		}),
 		new MiniCssExtractPlugin({
-            filename: 'css/[name].css?[chunkhash]',
+            filename: 'assets/css/[name].css?[chunkhash]',
         }),
     ],
 };
