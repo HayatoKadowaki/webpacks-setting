@@ -1,12 +1,4 @@
-/* setting */
-@import './setting/size';
-@import './setting/color';
-@import './setting/easing';
-@import './setting/typography';
-
-/* function */
-@import './function/function';
-@import './function/mixin';
+@use './global' as grobal;
 
 /* foundation */
 @import './foundation/reset';

@@ -45,3 +45,7 @@ $easeShiftOpacity2: cubic-bezier(0.18, 0.06, 0.23, 1);
 //(transform)
 $easeShiftTransform: cubic-bezier(0.43, 0.05, 0.17, 1);
 $easeShiftTransform2: cubic-bezier(0.55, 0.05, 0.22, 0.99);
+
+//サイトで見た良いイージング
+//リッチなイメージを与えるマスクなどに使用すると良さそう
+$easeRichMask: cubic-bezier(.77,0,.18,1); // 1s scaleY(1) →scaleY(0)

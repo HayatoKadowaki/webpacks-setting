@@ -13,11 +13,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = {
 	mode: process.env.NODE_ENV,
     entry: {
-		index: './src/assets/scripts/index.js',
+		index: `${srcPath}/assets/scripts/index.js`,
 	},
     output: {
         path: distPath,
-        filename: 'assets/js/index.js'
+        filename: 'assets/js/index.js',
+        assetModuleFilename: `../img/[name][ext]`,
     },
     devServer: {
 		hot: true,
@@ -28,8 +29,8 @@ const config = {
 	resolve: {
         extensions: ['.js'],
         alias : {
-            '@styles': path.resolve(__dirname, 'src/assets/styles'),
-            '@scripts': path.resolve(__dirname, 'src/assets/scripts')
+            '@styles': `${srcPath}/assets/styles`,
+            '@scripts': `${srcPath}/assets/scripts`
         },
     },
     module: {
@@ -61,6 +62,10 @@ const config = {
 					'postcss-loader'
 				],
             },
+            {
+                test: /\.(gif|png|jpg|svg)$/,
+                type: "asset/resource",
+            },
         ],
     },
     plugins: [
@@ -71,15 +76,15 @@ const config = {
         new HtmlWebpackPlugin({
 			inject: 'head',
             filename: 'index.html', //出力するためのHTML
-			template: srcPath + '/index.html',
+			template: `${srcPath}/index.html`,
 			scriptLoading: 'defer',
             minify: false,
         }),
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: 'src/assets/img',
-					to: 'assets/img'
+					from: `${srcPath}/assets/img`,
+					to: `${distPath}/assets/img`
 				}
 			]
 		}),

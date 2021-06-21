@@ -1,27 +1,19 @@
-@mixin mq-xl {
-    @media all and (max-width: map-get($breakpoints, xl)) {
+@use '../setting/size';
+
+@mixin mq($breakpoint) {
+    @media all and (max-width: map-get(size.$breakpoints, $breakpoint)) {
         @content;
     }
 }
 
-@mixin mq-lg {
-    @media all and (max-width: map-get($breakpoints, lg)) {
+@mixin retina-only {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
         @content;
     }
 }
 
-@mixin mq-md {
-    @media all and (max-width: map-get($breakpoints, md)) {
+@mixin ie-only {
+    @media only screen and (-ms-high-contrast: none) {
         @content;
     }
-}
-
-@mixin mq-sm {
-    @media all and (max-width: map-get($breakpoints, sm)) {
-        @content;
-    }
-}
-
-@mixin mq() {
-    
 }
