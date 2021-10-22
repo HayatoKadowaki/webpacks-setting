@@ -11,26 +11,26 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-	mode: process.env.NODE_ENV,
+    mode: process.env.NODE_ENV,
     entry: {
-		index: `${srcPath}/assets/scripts/index.js`,
-	},
+        index: `${srcPath}/assets/scripts/index.js`,
+    },
     output: {
         path: distPath,
         filename: 'assets/js/index.js',
         assetModuleFilename: `../img/[name][ext]`,
     },
     devServer: {
-		hot: true,
+        hot: true,
         contentBase: srcPath,
         watchContentBase: true,
         port: 3000,
     },
-	resolve: {
+    resolve: {
         extensions: ['.js'],
-        alias : {
+        alias: {
             '@styles': `${srcPath}/assets/styles`,
-            '@scripts': `${srcPath}/assets/scripts`
+            '@scripts': `${srcPath}/assets/scripts`,
         },
     },
     module: {
@@ -38,57 +38,57 @@ const config = {
             {
                 test: /\.js$/,
                 use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							[
-								'@babel/preset-env',
-								{
-									useBuiltIns: 'usage',
-									corejs: "3.9.1",
-								},
-							],
-						]
-					},
-				},
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    useBuiltIns: 'usage',
+                                    corejs: '3.9',
+                                },
+                            ],
+                        ],
+                    },
+                },
                 exclude: /node_modules/,
             },
             {
                 test: /(\.s[ac]ss)$/,
                 use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'sass-loader',
-					'postcss-loader'
-				],
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                    'postcss-loader',
+                ],
             },
             {
                 test: /\.(gif|png|jpg|svg)$/,
-                type: "asset/resource",
+                type: 'asset/resource',
             },
         ],
     },
     plugins: [
-		new CleanWebpackPlugin({
+        new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false,
             verbose: false,
         }),
         new HtmlWebpackPlugin({
-			inject: 'head',
+            inject: 'head',
             filename: 'index.html', //出力するためのHTML
-			template: `${srcPath}/index.html`,
-			scriptLoading: 'defer',
+            template: `${srcPath}/index.html`,
+            scriptLoading: 'defer',
             minify: false,
         }),
-		new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: `${srcPath}/assets/img`,
-					to: `${distPath}/assets/img`
-				}
-			]
-		}),
-		new MiniCssExtractPlugin({
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: `${srcPath}/assets/img`,
+                    to: `${distPath}/assets/img`,
+                },
+            ],
+        }),
+        new MiniCssExtractPlugin({
             filename: 'assets/css/[name].css?[chunkhash]',
         }),
     ],
