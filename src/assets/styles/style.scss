@@ -1,13 +1,10 @@
-@use './global' as grobal;
-
 /* foundation */
-@import './foundation/reset';
-@import './foundation/base';
+@use './foundation/reset';
+@use './foundation/base';
+@use './foundation/root';
 
 /* external */
 
-/* layout */
+/* component */
 
 /* project */
-
-/* component */
