@@ -18,13 +18,20 @@ const config = {
     output: {
         path: distPath,
         filename: 'assets/js/index.js',
-        assetModuleFilename: `../img/[name][ext]`,
+        assetModuleFilename: 'assets/img/[name][ext]',
     },
     devServer: {
-        hot: true,
-        contentBase: srcPath,
-        watchContentBase: true,
+        static: {
+            directory: path.join(srcPath),
+            staticOptions: {},
+            serveIndex: true,
+            watch: true,
+        },
+        hot: 'only',
         port: 3000,
+    },
+    experiments: {
+        asset: true,
     },
     resolve: {
         extensions: ['.js'],
